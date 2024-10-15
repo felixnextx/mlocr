@@ -24,7 +24,6 @@ You should see output like this:
 ```bash
 * Running on all addresses (0.0.0.0)
 * Running on http://127.0.0.1:5001
-* Running on http://192.168.1.156:5001
 ```
 
 ### 2. Using Docker
@@ -39,3 +38,16 @@ docker run -p 5000:5000 mlocr:v1.0
 ```
 
 You can access the tool via Docker at http://localhost:5000.
+
+### 3. API Usage
+You can send a POST request to convert a base64-encoded image of a chemical structure to a mol file using the /base64img2mol endpoint.
+
+Example using curl:
+```bash
+curl --location 'http://127.0.0.1:5000/base64img2mol' \
+--header 'Content-Type: application/json' \
+--data '{
+    "img": "base64code"
+}'
+```
+In the img field, replace "base64code" with your actual base64-encoded image of the chemical structure.
